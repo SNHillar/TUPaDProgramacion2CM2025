@@ -22,6 +22,12 @@ public class Producto {
         return id;
     }
 
+    public double getPrecio() {
+        return precio;
+    }
+    
+    
+
     public int getCantidad() {
         return cantidad;
     }
