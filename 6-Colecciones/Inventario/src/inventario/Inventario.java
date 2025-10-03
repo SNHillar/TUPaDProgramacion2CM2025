@@ -2,6 +2,7 @@
 package inventario;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -79,10 +80,46 @@ public class Inventario {
     }
     
     
-    public void obtenerProductoConMayorStock(){
-        
+    public Producto obtenerProductoConMayorStock(){
+          Producto productoMaxStock = null;
+          int maxStock = -1;
+          
+          for (Producto producto : productos) {
+              if(producto.getCantidad() > maxStock){
+                  maxStock = producto.getCantidad();
+                  productoMaxStock = producto;
+              }
+        }
+          System.out.println("El producto con mayor stock es: " + productoMaxStock);
+          return productoMaxStock;
     }
     
+    
+    public void filtrarProductosPorPrecio(double min, double max){
+        // nos creamos una lista de productos para guardar los que esten en los rangos
+        List<Producto> filtradosPorPrecio = new ArrayList<>();
+        
+        
+        for (Producto producto : productos) {
+            // comparamos si lo que trae producto, esta entre los valores
+            if(producto.getPrecio() >= min && producto.getPrecio() <= max ){
+                // y los agrega a la lista
+                filtradosPorPrecio.add(producto);
+            }
+        }
+        System.out.println("Filtrados: " + filtradosPorPrecio);
+    }
+    
+    
+    
+    public void mostrarCategoriasDisponibles(){
+        // recorremos los valores de la lista de categorias
+        for (CategoriaProducto categorias : CategoriaProducto.values()) {
+            //mostramos categorias y descripcion
+            System.out.println("Las categorias disponibles son: " + categorias + ": " + categorias.getDescripcion() );
+        }
+        
+    }
     
     public void filtrarPorCategoria(CategoriaProducto categoria) {
     if (categoria != null) {

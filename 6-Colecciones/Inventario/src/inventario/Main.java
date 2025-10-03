@@ -32,6 +32,13 @@ public class Main {
         System.out.println("");
         inventario.obtenerTotalStock();
         inventario.filtrarPorCategoria(CategoriaProducto.ALIMENTOS);
+        
+        inventario.obtenerProductoConMayorStock();
+        
+        inventario.filtrarProductosPorPrecio(2000, 800000);
+        
+        
+        inventario.mostrarCategoriasDisponibles();
     }
     
 }
